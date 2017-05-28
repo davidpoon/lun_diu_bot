@@ -2,6 +2,7 @@ import telepot
 import time
 import re
 import lundiubotbasicfn as ldb_basic
+import os
 
 
 def on_callback_query(msg):
@@ -35,8 +36,10 @@ def lun_diu_bot():
 
 
 if __name__ == '__main__':
-    with open('token', 'r') as token_fp:
-        bot, lun_diu_quote, bin_c_list = ldb_basic.init(token_fp.read().strip())
+    # with open('token', 'r') as token_fp:
+    #     bot, lun_diu_quote, bin_c_list = ldb_basic.init(token_fp.read().strip())
+    token = os.environ['token']
+    bot, lun_diu_quote, bin_c_list = ldb_basic.init(token)
     answerer = telepot.helper.Answerer(bot)
     # inlineQ = {}
     lun_diu_bot()
